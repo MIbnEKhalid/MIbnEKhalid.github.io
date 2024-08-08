@@ -5,17 +5,55 @@
   <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
-    <title>404 - Page Not Found</title>
-    <link rel="stylesheet" href="https://mbktechstudio.com/Assets/style.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://docs.mbktechstudio.com/Assets/style.css">   
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-    <link rel="icon" type="image/x-icon" href="https://mbktechstudio.com/Assets/Images/dgicon.svg">
+    <link rel="icon" type="image/x-icon" href="https://docs.mbktechstudio.com/Assets/Images/dgicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
-  <!-- Ask For Cookie Consent-->
-  <div id="cookie"></div>
-
+  <style>
+        .collapsible-container {
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .collapsible-container.collapsed {
+            max-height: 0;
+            padding: 0;
+        }
+        .collapsible-container.expanded {
+            max-height: 1000px; /* Adjust as needed */
+            padding: 5px; /* Adjust as needed */
+        }
+        .header { 
+            padding: 3px; 
+            outline: none;
+            font-size: 18px;
+            font-weight: 600;
+            background: #377a77;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border-radius: 0px;
+            text-align: center;
+        }
+        .header:hover {
+          background-color: #fff;
+          border-color: #377a77;
+          color: #377a77;
+          padding: 3px;
+          cursor: pointer;
+        }
+        .box-content {
+            padding: 5px;
+        }
+        .box{
+          border: 2px solid #377a77;
+          border-radius: 4px;
+          margin-bottom: 50px;
+        }
+  </style>
   <!-- navgaition menu -->
   <header>   
     
@@ -26,14 +64,26 @@
         <div class="logo">
 
           <div class="image">
-            <img src="https://mbktechstudio.com/Assets/Images/dg.svg" alt=""/>
+            <img src="https://docs.mbktechstudio.com/Assets/Images/dg.svg" alt=""/>
           </div>
 
           <div class="text">
-            <a href="#">MBK Tech Studio</a>
+            <a href="https://mbktechstudio.com">MBK Tech Studio</a>
           </div>
 
         </div>
+
+        <ul style="display: none;" class="menu">
+
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Projects</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+
+        </ul>
 
         <div class="media-icons">
 
@@ -49,60 +99,67 @@
 
       </div>
 
+      <div style="display: none;" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
 
     </nav>
 
   </header>
-<style> 
 
-
-        footer {
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-        }
-        html, body {
-    height: 100%;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .about {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-        
-    </style>
-</style>
   <body>
 
-
-
-    <!-- About Section Start -->
     <section class="about" id="about">
 
       <div class="content">
 
-        <img height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/cat.png">
-        <div class="title"><span>Error 404 - Page Not Found </span></div>
-
-        <p style="text-align: center;">
-          The Page You Are Looking For Might Have Been Removed Or Temporarily UnAvailable.
-        </p>
-        <div class="button">
-          <button onclick="loadPage('https://mbktechstudio.com/')">Go Home</button>
-          <button onclick="reloadPage()">Reload</button>
+        <div class="emojji">
+      <img class="catfix" height="130px" width="140px" src="https://mbktechstudio.com/Assets/Images/catfixing.png">
+      <img class="server1" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">        
+      <img class="server2" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
+      <img class="server3" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
         </div>
+
+        <br>
+
+        <div class="title"><span>Website Under Maintenance</span></div>
+
+        <p style="text-align: center; font-size: large;">
+        We apologize for the inconvenience, but this website is currently undergoing maintenance. We will be back online in a few hours.
+        </p>
+       
+        <h4>Please check back later.</h4>
+
+        <div class="box">
+          <div id="header" class="header">Contact Form</div>
+            <div id="collapsible-container" class="collapsible-container collapsed">
+                <div class="box-content">
+                  <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
+                    <div class="field"><div class="control"><input class="input" type="hidden" name="Timestamp" /></div></div>
+                    <div class="field"><div class="control"><input class="input" type="hidden" name="IXPX" /></div></div>
+                    <div class="field"><div class="control"><input class="input" type="hidden" name="Subject" value="UnderMaintaince"/></div></div>
+                    <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
+                    <div class="field">
+                      <label class="label">Name</label><div class="control"><div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div></div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Email</label><div class="control"><div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div></div>
+                    </div>
+                    <div class="field">
+                      <label class="label">Message</label><div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
+                    </div>
+                    <div class="button field is-grouped" style="display: flex; justify-content: center;">
+                      <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
+                    </div>
+                    <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
+                  </form>
+                </div>
+            </div>
+        </div>
+
       </div>
 
     </section>
-
 
   </body>
 
@@ -111,24 +168,70 @@
 
     <div class="text">
 
-      <span>Developed By <a href="#">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank" >Terms & Conditions</a> | support@mbktechstudio.com</span>
+      <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank" >Terms & Conditions</a> | <a href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com" >support@mbktechstudio.com</a> </span>
     
     </div>
   
-  </footer>
+  </footer> 
 
-  <script src="https://mbktechstudio.com/Assets/script.js"></script>
+  <script src="https://docs.mbktechstudio.com/Assets/script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
+  
   <script>
-    // Function to reload the current page
-function reloadPage() {
-    location.reload();
-}
 
-// Function to load a specific URL
-function loadPage(url) {
-    location.href = url;
-}
+document.getElementById('header').addEventListener('click', function() {
+            var container = document.getElementById('collapsible-container');
+            if (container.classList.contains('collapsed')) {
+                container.classList.remove('collapsed');
+                container.classList.add('expanded');
+            } else {
+                container.classList.remove('expanded');
+                container.classList.add('collapsed');
+            }
+        });
+  //phone
+      
+  $("#mobile_code").intlTelInput({
+          initialCountry: "pk",
+          separateDialCode: true
+          // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
+  });
 
+  
+
+  function remove() {
+    let i = 0;
+    while (i < 5) {
+        stars[i].className = "star";
+        i++;
+    }
+} 
+
+    document.addEventListener("DOMContentLoaded", function() {
+       AskForCookieConsent();
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const headerHeight = document.querySelector('header').offsetHeight;
+
+        document.querySelectorAll('nav .menu li a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    const targetPosition = targetElement.offsetTop - headerHeight - 28; // Adjust 10px as needed
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+    
   </script>
 
 </html>
