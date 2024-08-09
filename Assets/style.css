@@ -362,7 +362,7 @@ section .button button:hover{
 /* Footer CSS */
 footer{
   background: #377a77;
-  padding: 15px 0;
+  padding: 15px 5px;
   text-align: center;
   font-family: 'Poppins', sans-serif;
 }
@@ -532,7 +532,9 @@ form input, form textarea, form select {
   position: absolute;
   margin-left: 30px;
   margin-top: 20px;
-} section {
+} 
+
+section {
   padding-top: 40px;
 }
 section .content {
@@ -589,7 +591,8 @@ section .button button {
   outline: none;
   padding: 6px 12px;
   border-radius: 4px;
-  font-size: 15px;
+  margin: 5px 5px;
+  font-size: 18px;
   font-weight: 600;
   background: #377a77;
   color: #fff;
@@ -598,8 +601,9 @@ section .button button {
   transition: all 0.4s ease;
 }
 section .button button:hover {
+  transition: all 0.4s ease;
   border-color: #377a77;
-  background-color: #fff;
+  background-color: #f0f8ff;
   color: #377a77;
 }
 

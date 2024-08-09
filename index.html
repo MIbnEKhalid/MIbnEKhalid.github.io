@@ -14,47 +14,82 @@
   </head>
 
   <style>
-        .collapsible-container {
-            overflow: hidden;
-            transition: all 0.4s ease;
-        }
-        .collapsible-container.collapsed {
-            max-height: 0;
-            padding: 0;
-        }
-        .collapsible-container.expanded {
-            max-height: 1000px; /* Adjust as needed */
-            padding: 5px; /* Adjust as needed */
-        }
-        .header { 
-            padding: 3px; 
-            outline: none;
-            font-size: 18px;
-            font-weight: 600;
-            background: #377a77;
-            color: #fff;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            border-radius: 0px;
-            text-align: center;
-        }
-        .header:hover {
-          background-color: #fff;
-          border-color: #377a77;
-          color: #377a77;
-          padding: 3px;
-          cursor: pointer;
-        }
-        .box-content {
-            padding: 5px;
-        }
-        .box{
-          border: 2px solid #377a77;
-          border-radius: 4px;
-          margin-bottom: 50px;
-        }
+
+    .header { 
+      padding: 3px; 
+      outline: none;
+      font-size: 18px;
+      font-weight: 600;
+      background: #377a77;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border-radius: 0px;
+      text-align: center;
+    }
+
+    .header:hover {
+      background-color: #fff;
+      border-color: #377a77;
+      color: #377a77;
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    .box-content {
+      padding: 5px;
+    }
+
+    .box{
+      border: 2px solid #377a77;
+      border-radius: 4px;
+      margin-bottom: 50px;
+      position: absolute;
+      max-width: 700px;
+    }
+
+    .contact-box {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);          opacity: 0;
+      visibility: hidden;
+      border: 3px solid #377a77;
+      background-color: rgb(240, 248, 255, 1);
+      position: fixed;
+      width: 85%;
+      max-width: 1000px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+      font-family: 'Poppins', sans-serif;
+      z-index: 999997;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .contact-box.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .close-btn{
+      width: 23px;
+      height: 23px;
+      border-radius: 8px;
+      z-index: 999999;
+      position: absolute;
+      top: 7px;
+      right: 3px;
+      background: url(Assets/Images/close-icon.svg) 0 0 / 23px 23px no-repeat;
+      transition: all 0.4s ease;
+    }
+
+    .close-btn:hover {
+      opacity: 0.2;
+      transition: all 0.4s ease;
+    }
+  
   </style>
-  <!-- navgaition menu -->
+
   <header>   
     
     <nav>
@@ -68,7 +103,7 @@
           </div>
 
           <div class="text">
-            <a href="../">MBK Tech Studio</a>
+            <a href="https://mbktechstudio.com">MBK Tech Studio</a>
           </div>
 
         </div>
@@ -114,10 +149,10 @@
       <div class="content">
 
         <div class="emojji">
-      <img class="catfix" height="130px" width="140px" src="https://mbktechstudio.com/Assets/Images/catfixing.png">
-      <img class="server1" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">        
-      <img class="server2" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
-      <img class="server3" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
+          <img class="catfix"  height="130px" width="140px" src="https://mbktechstudio.com/Assets/Images/catfixing.png">
+          <img class="server1" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">        
+          <img class="server2" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
+          <img class="server3" height="120px" width="140px" src="https://mbktechstudio.com/Assets/Images/server.png">
         </div>
 
         <br>
@@ -130,31 +165,33 @@
        
         <h4>Please check back later.</h4>
 
-        <div class="box">
-          <div id="header" class="header">Contact Form</div>
-            <div id="collapsible-container" class="collapsible-container collapsed">
-                <div class="box-content">
-                  <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
-                    <div class="field"><div class="control"><input class="input" type="hidden" name="Timestamp" /></div></div>
-                    <div class="field"><div class="control"><input class="input" type="hidden" name="IXPX" /></div></div>
-                    <div class="field"><div class="control"><input class="input" type="hidden" name="Subject" value="UnderMaintaince"/></div></div>
-                    <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
-                    <div class="field">
-                      <label class="label">Name</label><div class="control"><div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div></div>
-                    </div>
-                    <div class="field">
-                      <label class="label">Email</label><div class="control"><div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div></div>
-                    </div>
-                    <div class="field">
-                      <label class="label">Message</label><div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
-                    </div>
-                    <div class="button field is-grouped" style="display: flex; justify-content: center;">
-                      <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
-                    </div>
-                    <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; border-color: aquamarine;"></div>
-                  </form>
-                </div>
-            </div>
+        <div class="button field is-grouped" style="display: flex; justify-content: center;">
+          <div class="control"><button class="button is-primary" onclick="showbox()">Contact Form</button></div>
+        </div>
+
+        <div id="c-form" class="contact-box">
+          <div onclick="hidebox()" class="close-btn"></div>
+          <div class="title"><span>Contact Us Form</span></div>
+          <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
+              <div class="field"><div class="control"><input class="input" type="hidden" name="Timestamp" /></div></div>
+              <div class="field"><div class="control"><input class="input" type="hidden" name="IXPX" /></div></div>
+              <div class="field"><div class="control"><input class="input" type="hidden" name="Subject" value="UnderMaintaince"/></div></div>
+              <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
+              <div class="field">
+                <label class="label">Name</label><div class="control"><div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div></div>
+              </div>
+              <div class="field">
+                <label class="label">Email</label><div class="control"><div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div></div>
+              </div>
+              <div class="field">
+                <label class="label">Message</label><div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
+              </div>
+              <p>For quicker assistance, contact us on Social Media. Email responses may take 1-2 business days.</p>
+              <div class="button field is-grouped" style="display: flex; justify-content: center;">
+                <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
+              </div>
+              <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;"></div>
+          </form>
         </div>
 
       </div>
@@ -163,7 +200,6 @@
 
   </body>
 
-  <!-- Footer Section Start -->
   <footer>
 
     <div class="text">
@@ -175,63 +211,17 @@
   </footer> 
 
   <script src="Assets/script.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
-  
+
   <script>
-
-document.getElementById('header').addEventListener('click', function() {
-            var container = document.getElementById('collapsible-container');
-            if (container.classList.contains('collapsed')) {
-                container.classList.remove('collapsed');
-                container.classList.add('expanded');
-            } else {
-                container.classList.remove('expanded');
-                container.classList.add('collapsed');
-            }
-        });
-  //phone
-      
-  $("#mobile_code").intlTelInput({
-          initialCountry: "pk",
-          separateDialCode: true
-          // utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.4/js/utils.js"
-  });
-
-  
-
-  function remove() {
-    let i = 0;
-    while (i < 5) {
-        stars[i].className = "star";
-        i++;
+ 
+    function showbox() {
+      document.getElementById('c-form').classList.add('show');
     }
-} 
 
-    document.addEventListener("DOMContentLoaded", function() {
-       AskForCookieConsent();
-    });
+    function hidebox() {
+      document.getElementById('c-form').classList.remove('show');
+    }
 
-    document.addEventListener('DOMContentLoaded', function () {
-        const headerHeight = document.querySelector('header').offsetHeight;
-
-        document.querySelectorAll('nav .menu li a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    const targetPosition = targetElement.offsetTop - headerHeight - 28; // Adjust 10px as needed
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-    
   </script>
 
 </html>
