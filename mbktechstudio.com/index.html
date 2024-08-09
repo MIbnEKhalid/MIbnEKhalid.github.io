@@ -1,0 +1,223 @@
+<!DOCTYPE html> 
+
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Assets/style.css">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="../Assets/Images/dgicon.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+
+  <style>
+
+    .header { 
+      padding: 3px; 
+      outline: none;
+      font-size: 18px;
+      font-weight: 600;
+      background: #377a77;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border-radius: 0px;
+      text-align: center;
+    }
+
+    .header:hover {
+      background-color: #fff;
+      border-color: #377a77;
+      color: #377a77;
+      padding: 3px;
+      cursor: pointer;
+    }
+
+    .box-content {
+      padding: 5px;
+    }
+
+    .box{
+      border: 2px solid #377a77;
+      border-radius: 4px;
+      margin-bottom: 50px;
+      position: absolute;
+      max-width: 700px;
+    }
+
+    .contact-box {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);         
+      opacity: 0;
+      visibility: hidden;
+      border: 3px solid #377a77;
+      background-color: rgb(240, 248, 255, 1);
+      position: fixed;
+      width: 85%;
+      max-width: 1000px;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+      font-family: 'Poppins', sans-serif;
+      z-index: 999997;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .contact-box.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .close-btn{
+      width: 23px;
+      height: 23px;
+      border-radius: 8px;
+      z-index: 999999;
+      position: absolute;
+      top: 7px;
+      right: 3px;
+      background: url(Assets/Images/close-icon.svg) 0 0 / 23px 23px no-repeat;
+      transition: all 0.4s ease;
+    }
+
+    .close-btn:hover {
+      opacity: 0.2;
+      transition: all 0.4s ease;
+    }
+  
+  </style>
+
+  <header>   
+    
+    <nav>
+
+      <div class="navbar">
+
+        <div class="logo">
+
+          <div class="image">
+            <img src="../Assets/Images/dg.svg" alt=""/>
+          </div>
+
+          <div class="text">
+            <a href="https://mbktechstudio.com">MBK Tech Studio</a>
+          </div>
+
+        </div>
+
+        <ul style="display: none;" class="menu">
+
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Projects</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+
+          <div class="cancel-btn">
+            <i class="fas fa-times"></i>
+          </div>
+
+        </ul>
+
+        <div class="media-icons">
+
+          <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://x.com/ibnekhalid28"                                      target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://instagram.com/mbktech.studios"                           target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://github.com/MIbnEKhalid"                                  target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b"       target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://youtube.com/@MBKTechStudios"                             target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://discord.gg/MUAyAeckrM"                                   target="_blank"><i class="fab fa-discord"></i></a>
+
+        </div>
+
+      </div>
+
+      <div style="display: none;" class="menu-btn">
+        <i class="fas fa-bars"></i>
+      </div>
+
+    </nav>
+
+  </header>
+
+  <body>
+
+    <section class="about" id="about">
+
+      <div class="content">
+        <img style="mix-blend-mode:multiply; left: 50%; transform: translate(-50%, 0%); position: relative;"  height="150px" width="150px" src="../Assets/Images/catStacks.jpg"> 
+
+        <br>
+
+        <div class="title"><span>Documentation Under Development</span></div>
+
+        <p style="text-align: center; font-size: large;">
+          We apologize for the inconvenience, but the documentation for the MBK Tech Studio website is currently under development. It is expected to be available by late August or later.
+        </p>
+         
+                
+
+        <h4>Expected Availability: <span style="font-weight: 500;">Late August or later.</span></h4>
+
+        <div class="button field is-grouped" style="display: flex; justify-content: center;">
+          <div class="control"><button class="button is-primary" onclick="showbox()">Contact Form</button></div>
+        </div>
+
+        <div id="c-form" class="contact-box">
+          <div onclick="hidebox()" class="close-btn"></div>
+          <div class="title"><span>Contact Us Form</span></div>
+          <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
+              <div class="field"><div class="control"><input class="input" type="hidden" name="Timestamp" /></div></div>
+              <div class="field"><div class="control"><input class="input" type="hidden" name="IXPX" /></div></div>
+              <div class="field"><div class="control"><input class="input" type="hidden" name="Subject" value="UnderMaintaince"/></div></div>
+              <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
+              <div class="field">
+                <label class="label">Name</label><div class="control"><div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div></div>
+              </div>
+              <div class="field">
+                <label class="label">Email</label><div class="control"><div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div></div>
+              </div>
+              <div class="field">
+                <label class="label">Message</label><div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
+              </div>
+              <p>For quicker assistance, contact us on Social Media. Email responses may take 1-2 business days.</p>
+              <div class="button field is-grouped" style="display: flex; justify-content: center;">
+                <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
+              </div>
+              <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;"></div>
+          </form>
+        </div>
+
+      </div>
+
+    </section>
+
+  </body>
+
+  <footer>
+
+    <div class="text">
+
+      <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank" >Terms & Conditions</a> | <a href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com" >support@mbktechstudio.com</a> </span>
+    
+    </div>
+  
+  </footer> 
+
+  <script src="../Assets/script.js"></script>
+
+  <script>
+ 
+    function showbox() {
+      document.getElementById('c-form').classList.add('show');
+    }
+
+    function hidebox() {
+      document.getElementById('c-form').classList.remove('show');
+    }
+
+  </script>
+
+</html>
