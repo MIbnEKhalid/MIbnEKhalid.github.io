@@ -70,16 +70,6 @@ document.getElementById("form").addEventListener("submit", function(e) {
 
   document.querySelector('input[name="Timestamp"]').value = timestamp;
 
-  $.getJSON("https://api.ipify.org?format=json", function(data) {
-      if (data && data.ip) {
-          $('input[name="IXPX"]').val(data.ip);
-      } else {
-          console.error("Failed to retrieve IP address.");
-      }
-  }).fail(function() {
-      console.error("Failed to retrieve IP address.");
-  });
-
   var formData = new FormData(this);
 
   fetch("https://api.web3forms.com/submit", {
@@ -111,78 +101,6 @@ document.getElementById("form").addEventListener("submit", function(e) {
       console.error(error);
       messageBox.textContent = "An error occurred while submitting the form.";
   });
-});
-// Function to handle change event of the subject select
-
-document.getElementById("subjectSelect").addEventListener("change", function() {
-  var numberField = document.querySelector(".phoneField");
-  var ratingField = document.querySelector(".ratingWeb");
-  var supportField = document.querySelector(".supportfield");
-
-  // Get the value of the selected option
-  var selectedOption = this.value;
-
-  if (selectedOption === "Collaboration") {
-      // Show phone number field for collaboration
-      numberField.style.display = "block";
-      document.querySelector('input[name="Number"]').setAttribute("required", "required");
-
-      // Hide rating field
-      ratingField.style.display = "none";
-      document.querySelectorAll('input[name="stars"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-
-      // Hide support field
-      supportField.style.display = "none";
-      document.querySelectorAll('select[name="support"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-  } else if (selectedOption === "Feedback") {
-      // Show rating field for feedback
-      ratingField.style.display = "block";
-      document.querySelectorAll('input[name="stars"]').forEach(function(input) {
-          input.setAttribute("required", "required");
-      });
-
-      // Hide phone number field
-      numberField.style.display = "none";
-      document.querySelector('input[name="Number"]').removeAttribute("required");
-
-      // Hide support field
-      supportField.style.display = "none";
-      document.querySelectorAll('select[name="support"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-  } else if (selectedOption === "Support") {
-      // Show support field for support
-      supportField.style.display = "block";
-      document.querySelectorAll('select[name="support"]').forEach(function(input) {
-          input.setAttribute("required", "required");
-      });
-
-      // Show phone number field for support
-      numberField.style.display = "block";
-      document.querySelector('input[name="Number"]').setAttribute("required", "required");
-
-      // Hide rating field
-      ratingField.style.display = "none";
-      document.querySelectorAll('input[name="stars"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-  } else {
-      // Hide all additional fields for other options
-      numberField.style.display = "none";
-      document.querySelector('input[name="Number"]').removeAttribute("required");
-      ratingField.style.display = "none";
-      document.querySelectorAll('input[name="stars"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-      supportField.style.display = "none";
-      document.querySelectorAll('select[name="support"]').forEach(function(input) {
-          input.removeAttribute("required");
-      });
-  }
 });
 
 function handleCVFile() {
