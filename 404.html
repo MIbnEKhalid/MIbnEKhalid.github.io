@@ -71,6 +71,7 @@
     }
 
   </style>
+  <div id="notice"></div>
 
   <header>   
     
@@ -288,6 +289,16 @@ document.getElementById("form").addEventListener("submit", function(e) {
       messageBox.textContent = "An error occurred while submitting the form.";
   });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+           Noticee();
+        });
+
+        function Noticee() {
+    fetch('http://localhost/web/MY-Project-Studio-main/Assets/notice.html').then(response => response.text()).then(html => {
+        document.getElementById('notice').innerHTML = html;
+    });
+}
   </script>
 
 </html>

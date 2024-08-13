@@ -239,10 +239,16 @@ function openProjectPage(id) {
 
 
 function AskForCookieConsent() {
-    fetch('https://mbktechstudio.com/Assets/cookie.html').then(response => response.text()).then(html => {
+    fetch('https://test.mbktechstudio.com/Assets/cookie.html').then(response => response.text()).then(html => {
         document.getElementById('cookie').innerHTML = html;
         const termsVersion = document.getElementById('termsVersion').innerText.split(': ')[1];
         checkCookie(termsVersion);
+    });
+}
+
+function Noticee() {
+    fetch('https://test.mbktechstudio.com/Assets/notice.html').then(response => response.text()).then(html => {
+        document.getElementById('notice').innerHTML = html;
     });
 }
 
