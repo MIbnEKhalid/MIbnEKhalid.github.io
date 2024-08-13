@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://test-mbktechstudio.netlify.app/*"
+  to = "https://test.mbktechstudio.com/:splat"
+  status = 301
+  force = true
