@@ -2,9 +2,28 @@
 
 https://mbktechstudio.com/ or https://MIbnEKhalid.github.io/
 
-**Deployed Branch: [main](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/main)**
+Detailed Documentation of this website will be available soon on: [docs.mbktechstudio.com/mbktechstudio.com](https://docs.mbktechstudio.com/mbktechstudio.com)
 
-**Active Test Branch: [test1](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/test1)**
+# **Deployed Branches**
+
+| **Branch**                                                                                  | **Custom Domain**          | **Primary Domain**                           | **Deployment**                                                                                           |
+|---------------------------------------------------------------------------------------------|-----------------------------|-----------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| [**Main Branch**](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/main)           | [mbktechstudio.com](https://mbktechstudio.com)         | [mibnekhalid.github.io](https://mibnekhalid.github.io)                   | Hosted using GitHub Pages. The main branch deploys the primary site.                                       |
+| [**Maintenance Branch**](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/Maintenance) | [mbktechstudio.com](https://mbktechstudio.com)         | [mibnekhalid.github.io](https://mibnekhalid.github.io)                 | Used for deploying a maintenance page on mbktechstudio.com during maintenance periods.                   |
+| [**Privacy Branch**](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/Privacy)     | [privacy.mbktechstudio.com](https://privacy.mbktechstudio.com) | [privacy-mbktechstudio.netlify.app](https://privacy-mbktechstudio.netlify.app)     | Hosted using Netlify. Linked to the Privacy branch, this deployment is for the privacy-related subdomain.  |
+| [**Docs Branch**](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/Docs)           | [docs.mbktechstudio.com](https://docs.mbktechstudio.com)    | [docs-mbktechstudio.netlify.app](https://docs-mbktechstudio.netlify.app)        | Hosted using Netlify. Linked to the Docs branch, this deployment is for the documentation subdomain.       |
+|            | [project.mbktechstudio.com](https://project.mbktechstudio.com)    |         |        |
+| [**Test Branch**](https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/tree/test)           | [test.mbktechstudio.com](https://test.mbktechstudio.com)    | [test-mbktechstudio.netlify.app](https://test-mbktechstudio.netlify.app)        | Hosted using Netlify. Linked to the test branch, this deployment is for the testing purpose.       |
+
+
+**Note:** `mibnekhalid.github.io`, `privacy-mbktechstudio.netlify.app`, and `docs-mbktechstudio.netlify.app` are original domains. The `mbktechstudio.com` domain is a custom domains with CNAME records redirecting to the original domains.
+
+
+
+
+
+
+
 
 Website Source Code 
 https://github.com/MIbnEKhalid/MIbnEKhalid.github.io/ or https://github.com/MIbnEKhalid/mbktech.studios/
@@ -41,7 +60,7 @@ root
 │ │ ├───cpp.png
 │ ├───index.html
 │ ├───style.css
-├───UserAgreement/
+├───Protfolio/
 │ ├───index.html
 ├───404.html
 ├───CNAME
