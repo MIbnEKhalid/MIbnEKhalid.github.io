@@ -50,6 +50,7 @@
       position: relative;
       padding-left: 30px;
       padding-right: 17px;
+      font-size: large;
     }
    
     .faq-question::before {
@@ -71,12 +72,14 @@
       max-height: 0;
       overflow: hidden;
       opacity: 0;
+      font-size: 15px;
       padding-left: 30px;
-      transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+      transition: opacity 0s ease-out, max-height 0s ease-out;
+      transition: max-height 0.4s ease-in, opacity 0.4s ease-in;
     }
 
     .faq-item.active .faq-answer {
-      margin-top: 10px;
+      margin-top: 5px;
       max-height: 500px;  
       opacity: 1;
     }
@@ -109,8 +112,10 @@
       padding: 0px 5px;
     }
     .faq-answer ul h3 {
+      font-size: 17px;
       text-align: left;
     }
+
   </style>
   <!-- Ask For Cookie Consent-->
   <div id="cookie"></div>
@@ -300,29 +305,28 @@
   
   </footer>
 
+  <script src="https://mbktechstudio.com/Assets/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
   <script>
-document.querySelectorAll('.faq-question').forEach(item => {
-  item.addEventListener('click', function () {
-    const faqItem = this.parentNode;
-    faqItem.classList.toggle('active');
-  });
-});
+
+    // Select all the FAQ question elements
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', function () {
+        const faqItem = this.parentNode;
+        
+        // Toggle the 'active' class for the clicked FAQ item
+        faqItem.classList.toggle('active');
+        
+        // Close other FAQ items if you want only one to be open at a time
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== faqItem) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
 
   </script>
-  <script>
-    // Sticky Navigation Menu JS Code
-    let nav = document.querySelector("nav");
-let val;
-window.onscroll = function() {
-  if(document.documentElement.scrollTop > 20){
-    nav.classList.add("sticky");
-  }else{
-    nav.classList.remove("sticky");
-  }
-
-}
-</script>
 
 </html>
