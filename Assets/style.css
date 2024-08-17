@@ -618,3 +618,89 @@ html,body {
   justify-content: center;
   align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 900px;
+    margin-top: 80px;
+}
+
+.container > h1 {
+    font-size: 50px;
+    color: #2d2d2d;
+    text-shadow: #cccc 1px 1px;
+    margin-bottom: 20px;
+}
+
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filters > button {
+    font-size: 17px;
+    padding: 5px;
+    width: 90px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.filters > input, select {
+    padding: 5px;
+    width: 120px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: none;
+    outline: none;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.product {
+    border: 2px solid #377a77;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    max-width: 250px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.product img {
+    max-width: 230px;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+
+.products p{
+    font-size: 12px;
+}
