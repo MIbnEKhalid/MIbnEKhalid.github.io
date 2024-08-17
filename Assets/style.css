@@ -632,6 +632,39 @@ html,body {
 
 
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  border-radius: 9px;
+  background-color: #fff;
+  width: auto;
+  max-width: 400px;
+  height: 40px;
+  border: 2px solid #377a77;
+  overflow: hidden;
+}
+.search-bar input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 10px;
+  flex: 1;
+}    
+
+.search-bar button  {
+  background-color: #377a77;
+  border: none;
+  color: white;
+  padding: 19px;
+  cursor: pointer;   
+  transition: all 0.5s ease;
+}
+  
+.search-bar button:hover {
+  background-color: rgb(217, 217, 217);
+  color: #377a77;
+  transition: all 0.4s ease;
+} 
 
 
 .container {
