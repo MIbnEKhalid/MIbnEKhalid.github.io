@@ -2,20 +2,20 @@
 
 <html lang="en" dir="ltr">
 
-  <head>
+ <head>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
-    <title>Dcoumentation Of MBK Tech Studio Website</title>
-    <link rel="stylesheet" href="../Assets/style.css">   
+    <title id="page-title"></title>
+    <link rel="stylesheet" href="https://docs.mbktechstudio.com/Assets/style.css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="../Assets/Images/dgicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
+ </head>
 
-  <style>
+ <style>
 
-    .header { 
-      padding: 3px; 
+    .header {
+      padding: 3px;
       outline: none;
       font-size: 18px;
       font-weight: 600;
@@ -26,7 +26,7 @@
       border-radius: 0px;
       text-align: center;
     }
-
+    
     .header:hover {
       background-color: #fff;
       border-color: #377a77;
@@ -34,44 +34,63 @@
       padding: 3px;
       cursor: pointer;
     }
-
+    
     .box-content {
       padding: 5px;
     }
-
-    .box{
+    
+    .box {
       border: 2px solid #377a77;
       border-radius: 4px;
       margin-bottom: 50px;
       position: absolute;
       max-width: 700px;
     }
-
+    
     .contact-box {
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);         
+      transform: translate(-50%, -50%);
       opacity: 0;
       visibility: hidden;
       border: 3px solid #377a77;
-      background-color: rgb(240, 248, 255, 1);
+      background-color: rgb(240, 248, 255, 0.95);
       position: fixed;
-      width: 85%;
-      max-width: 1000px;
+      width: 99%;
       padding: 15px;
       border-radius: 8px;
       box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
-      font-family: 'Poppins', sans-serif;
+      font-family: "Poppins", sans-serif;
       z-index: 999997;
       transition: opacity 0.4s ease, visibility 0.4s ease;
+      overflow: scroll;
+      max-height: 666px;
+      max-width: 800px;
     }
 
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 0px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #89f1ee;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4ea19d;
+    }
+    
     .contact-box.show {
       opacity: 1;
       visibility: visible;
     }
-
-    .close-btn{
+    
+    .close-btn {
       width: 23px;
       height: 23px;
       border-radius: 8px;
@@ -79,137 +98,202 @@
       position: absolute;
       top: 7px;
       right: 3px;
-      background: url(../Assets/Images/close-icon.svg) 0 0 / 23px 23px no-repeat;
+      background: url(../Images/close-icon.svg) 0 0 / 23px 23px no-repeat;
       transition: all 0.4s ease;
     }
-
+    
     .close-btn:hover {
       opacity: 0.2;
       transition: all 0.4s ease;
     }
-  
-  </style>
-
-  <header>   
     
+    .hs {
+      display: inline-block;
+    }
+    
+    .hs a {
+      color: #8ba7f3;
+      font-size: 17px;
+    }
+    
+    .hs a:hover {
+      color: #377a77;
+      transition: all 0.3s ease;
+    }
+    
+    .Delayed ul li {
+      padding: 2px 0px 2px;
+      list-style-type: decimal;
+      font-weight: bold;
+    }
+    
+    .Delayed ul {
+      padding: 0px 5px;
+    }
+    .Delayed ul h3 {
+      text-align: left;
+    }
+    
+    .media-icons a {
+      color: #377a77;
+      font-size: 21px;
+      margin: 0 6px;
+      transition: all 0.3s ease;
+    }
+    .media-icons a:hover {
+      color: grey;
+      transition: all 0.3s ease;
+    }
+
+    section .button button{
+        font-size: 26px;
+        margin: 15px;
+    }
+ </style>
+ 
+ <header>
     <nav>
-
-      <div class="navbar">
-
-        <div class="logo">
-
-          <div class="image">
-            <img src="../Assets/Images/dg.svg" alt=""/>
+       <div class="navbar">
+          <div class="logo">
+             <div class="image">
+                <img src="../Assets/Images/dg.svg" alt=""/>
+             </div>
+             <div class="text">
+                <a href="https://mbktechstudio.com">MBK Tech Studio</a>
+             </div>
           </div>
-
-          <div class="text">
-            <a href="https://mbktechstudio.com">MBK Tech Studio</a>
+          <ul style="display: none;" class="menu">
+             <li><a href="#about">About Us</a></li>
+             <li><a href="#services">Projects</a></li>
+             <li><a href="#contact">Contact Us</a></li>
+             <div class="cancel-btn">
+                <i class="fas fa-times"></i>
+             </div>
+          </ul>
+          <div class="media-icons">
+             <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+             <a href="https://x.com/ibnekhalid28"                                      target="_blank"><i class="fab fa-twitter"></i></a>
+             <a href="https://instagram.com/mbktech.studios"                           target="_blank"><i class="fab fa-instagram"></i></a>
+             <a href="https://github.com/MIbnEKhalid"                                  target="_blank"><i class="fab fa-github"></i></a>
+             <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b"       target="_blank"><i class="fab fa-linkedin"></i></a>
+             <a href="https://youtube.com/@MBKTechStudios"                             target="_blank"><i class="fab fa-youtube"></i></a>
+             <a href="https://discord.gg/MUAyAeckrM"                                   target="_blank"><i class="fab fa-discord"></i></a>
           </div>
-
-        </div>
-
-        <ul style="display: none;" class="menu">
-
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Projects</a></li>
-          <li><a href="#contact">Contact Us</a></li>
-
-          <div class="cancel-btn">
-            <i class="fas fa-times"></i>
-          </div>
-
-        </ul>
-
-        <div class="media-icons">
-
-          <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://x.com/ibnekhalid28"                                      target="_blank"><i class="fab fa-twitter"></i></a>
-          <a href="https://instagram.com/mbktech.studios"                           target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://github.com/MIbnEKhalid"                                  target="_blank"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b"       target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://youtube.com/@MBKTechStudios"                             target="_blank"><i class="fab fa-youtube"></i></a>
-          <a href="https://discord.gg/MUAyAeckrM"                                   target="_blank"><i class="fab fa-discord"></i></a>
-
-        </div>
-
-      </div>
-
-      <div style="display: none;" class="menu-btn">
-        <i class="fas fa-bars"></i>
-      </div>
-
+       </div>
+       <div style="display: none;" class="menu-btn">
+          <i class="fas fa-bars"></i>
+       </div>
     </nav>
+ </header>
 
-  </header>
-
-  <body>
-
+ <body>
     <section class="about" id="about">
+       <div class="content">
+          <img style="mix-blend-mode:multiply; left: 50%; transform: translate(-50%, 0%); position: relative;"  height="150px" width="150px" src="../Images/catStacks.jpg"> 
+          <br>
+          <div class="title"><span>Documentation Under Development</span></div>
+          <p style="text-align: center; font-size: large;">
+             We Apologize For The Inconvenience, But The Documentation For <span style="font-weight: bold;" id="project-name">Project Name</span> Is Currently Under Development.
+          </p>
+          <h4>Expected Availability: <span style="font-weight: 500;" id="availability-date">Late August or later.</span></h4>
+          <h4>
+             Need the Documentation but It's Delayed? Here's What to Do 
+             <div class="hs"><a onclick="shb()">Show</a></div>
+          </h4>
 
-      <div class="content">
-        
-        <img style="mix-blend-mode:multiply; left: 50%; transform: translate(-50%, 0%); position: relative;"  height="150px" width="150px" src="../Assets/Images/catStacks.jpg"> 
+          <div id="bully" class="contact-box">
+             <div class="Delayed">
+                <div onclick="hhb()" class="close-btn"></div>
+                <div class="title"><span>Need The Documentation of The Project But It's Delayed? Here's What to Do</span> </div>
+                <ul style="text-align: left;">
+                   <li>
+                      <h3>Submit a Request on the Documentation Page</h3>
+                   </li>
+                   If you're looking for documentation for a specific project (e.g., docs.mbktechstudio.com/project1), use the contact form on that page to let me know.
+                   <li>
+                      <h3>Main Contact Form</h3>
+                   </li>
+                   If the documentation page doesn't exist yet, please submit a request through the contact form on the main site: 
+                   <div class="hs"><a href="https://mbktechstudio.com/#contact" target="_blank">mbktechstudio.com</a></div>
+                   .
+                   <li>
+                      <h3>Reach Out on Social Media</h3>
+                   </li>
+                   You can also contact me on through Social Media (Instagram Prefred).
+                   <div class="media-icons">
+                      <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                      <a href="https://x.com/ibnekhalid28"                                      target="_blank"><i class="fab fa-twitter"></i></a>
+                      <a href="https://instagram.com/mbktech.studios"                           target="_blank"><i class="fab fa-instagram"></i></a>
+                      <a href="https://github.com/MIbnEKhalid"                                  target="_blank"><i class="fab fa-github"></i></a>
+                      <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b"       target="_blank"><i class="fab fa-linkedin"></i></a>
+                      <a href="https://youtube.com/@MBKTechStudios"                             target="_blank"><i class="fab fa-youtube"></i></a>
+                      <a href="https://discord.gg/MUAyAeckrM"                                   target="_blank"><i class="fab fa-discord"></i></a>
+                   </div>
+                   <li>
+                      <h3>Need a Faster Response?</h3>
+                   </li>
+                   Here's my Phone Number: +923264552255. Feel Free To Bully Me until I Upload The Documentation!
+                </ul>
+             </div>
+          </div>
 
-        <br>
+          <div class="button field is-grouped" style="display: flex; justify-content: center;">
+             <div class="control"><button class="button is-primary" onclick="showbox()">Contact Form</button></div>
+          </div>
+          
+          <div id="c-form" class="contact-box">
+             <div onclick="hidebox()" class="close-btn"></div>
+             <div class="title"><span>Contact Us Form</span></div>
+             <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
+                <div class="field">
+                   <div class="control"><input class="input" type="hidden" name="Timestamp" /></div>
+                </div>
+                <div class="field">
+                   <div class="control"><input class="input" type="hidden" name="Subject" value="Docs.UnderDevelopment"/></div>
+                </div>
+                <div class="field">
+                   <div class="control"><input class="input" type="hidden" name="PageUrl" value="Docs.UnderDevelopment"/></div>
+                </div>
+                <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
+                <div class="field">
+                   <label class="label">Name</label>
+                   <div class="control">
+                      <div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div>
+                   </div>
+                </div>
+                <div class="field">
+                   <label class="label">Email</label>
+                   <div class="control">
+                      <div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div>
+                   </div>
+                </div>
+                <div class="field">
+                   <label class="label">Message</label>
+                   <div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
+                </div>
+                <p>For quicker assistance, contact us on Social Media. Email responses may take 1-2 business days.</p>
+                <div class="button field is-grouped" style="display: flex; justify-content: center;">
+                   <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
+                </div>
+                <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;"></div>
+             </form>
+          </div>
 
-        <div class="title"><span>Documentation Under Development</span></div>
-
-        <p style="text-align: center; font-size: large;">
-          We apologize for the inconvenience, but the documentation for the MBK Tech Studio website is currently under development.
-        </p>
-         
-                
-
-        <h4>Expected Availability: <span style="font-weight: 500;">Late August or later.</span></h4>
-
-        <div class="button field is-grouped" style="display: flex; justify-content: center;">
-          <div class="control"><button class="button is-primary" onclick="showbox()">Contact Form</button></div>
-        </div>
-
-        <div id="c-form" class="contact-box">
-          <div onclick="hidebox()" class="close-btn"></div>
-          <div class="title"><span>Contact Us Form</span></div>
-          <form action="https://api.web3forms.com/submit" method="POST" class="container m-4 pl-4" id="form">
-              <div class="field"><div class="control"><input class="input" type="hidden" name="Timestamp" /></div></div>
-              <div class="field"><div class="control"><input class="input" type="hidden" name="IXPX" /></div></div>
-              <div class="field"><div class="control"><input class="input" type="hidden" name="Subject" value="UnderMaintaince"/></div></div>
-              <input type="hidden" name="access_key" value="d2837145-a5b5-49af-b269-cb79e9b57456">
-              <div class="field">
-                <label class="label">Name</label><div class="control"><div class="input" ><input  type="text" placeholder="Enter Your Name" name="UserName" required /></div></div>
-              </div>
-              <div class="field">
-                <label class="label">Email</label><div class="control"><div class="input" ><input  type="email" placeholder="Enter Your Email" name="Email" required /></div></div>
-              </div>
-              <div class="field">
-                <label class="label">Message</label><div class="control"><textarea class="input" placeholder="Enter Your Message" name="Message" rows="4" required></textarea></div>
-              </div>
-              <p>For quicker assistance, contact us on Social Media. Email responses may take 1-2 business days.</p>
-              <div class="button field is-grouped" style="display: flex; justify-content: center;">
-                <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
-              </div>
-              <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;"></div>
-          </form>
-        </div>
-
-      </div>
-
+       </div>
     </section>
-
-  </body>
-
-  <footer>
+ </body>
+ 
+ <footer>
 
     <div class="text">
 
-      <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank" >Terms & Conditions</a> | <a href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com" >support@mbktechstudio.com</a> </span>
+      <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank" >Terms & Conditions</a> | <a href="https://mbktechstudio.com/FAQS" target="_blank">FAQs</a> | <a href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com" >support@mbktechstudio.com</a> </span>
     
     </div>
   
-  </footer> 
+ </footer> 
 
-  <script src="../Assets/script.js"></script>
-
-  <script>
+ <script>
  
     function showbox() {
       document.getElementById('c-form').classList.add('show');
@@ -218,7 +302,102 @@
     function hidebox() {
       document.getElementById('c-form').classList.remove('show');
     }
+    function shb() {
+      document.getElementById('bully').classList.add('show');
+    }
 
-  </script>
+    function hhb() {
+      document.getElementById('bully').classList.remove('show');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {   
+        const projectName = "MBK Tech Studio Website";
+        const availabilityDate = "September or Letter";
+        document.getElementById('page-title').textContent = `Documentation of ${projectName}`;
+        document.getElementById('project-name').textContent = projectName;
+        document.getElementById('availability-date').textContent = availabilityDate; 
+    });
+
+   let nav = document.querySelector("nav");
+   let val;
+   window.onscroll = function() {
+      if(document.documentElement.scrollTop > 20){
+         nav.classList.add("sticky");
+      }
+      else{
+         nav.classList.remove("sticky");
+      }  
+   }
+
+
+ </script>
+
+  <!--Form Submission-->
+ <script>
+
+    function resetMessageBoxColor() {
+    	var messageBox = document.getElementById("message");
+    	messageBox.style.backgroundColor = "beige";
+    	messageBox.style.color = "green";
+    }
+
+    function getPageUrl() {
+    	return window.location.href;
+    }
+
+    document.getElementById("form").addEventListener("submit", function(e) {
+    	e.preventDefault();
+    	resetMessageBoxColor();
+    	var messageBox = document.getElementById("message");
+    	messageBox.textContent = "Submitting..";
+    	messageBox.style.display = "block";
+    	document.getElementById("submit-button").disabled = true;
+
+    	var currentDate = new Date();
+    	var day = String(currentDate.getDate()).padStart(2, "0");
+    	var month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    	var year = currentDate.getFullYear();
+    	var hours = String(currentDate.getHours()).padStart(2, "0");
+    	var minutes = String(currentDate.getMinutes()).padStart(2, "0");
+    	var seconds = String(currentDate.getSeconds()).padStart(2, "0");
+    	var timestamp = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+
+    	document.querySelector('input[name="Timestamp"]').value = timestamp;
+    	document.querySelector('input[name="PageUrl"]').value = getPageUrl();
+
+    	var formData = new FormData(this);
+
+    	fetch("https://api.web3forms.com/submit", {
+    		method: "POST",
+    		body: formData
+    	}).then(function(response) {
+    		if (response.ok) {
+    			return response.json();
+    		} else {
+    			throw new Error("Failed to submit the form.");
+    		}
+    	}).then(function(data) {
+    		messageBox.textContent = "Message Submitted Successfully!";
+    		messageBox.style.backgroundColor = "green";
+    		messageBox.style.color = "beige";
+    		document.getElementById("submit-button").disabled = false;
+    		document.getElementById("form").reset();
+
+    		setTimeout(function() {
+    			messageBox.textContent = "";
+    			messageBox.style.display = "none";
+    			// Hide additional fields if necessary
+    			var numberField = document.querySelector(".phoneField");
+    			if (numberField) numberField.style.display = "none";
+    			var supportField = document.querySelector(".supportfield");
+    			if (supportField) supportField.style.display = "none";
+    		}, 2000);
+    	}).catch(function(error) {
+    		console.error(error);
+    		messageBox.textContent = "An error occurred while submitting the form.";
+    	});
+    });
+
+ </script>
 
 </html>
