@@ -12,14 +12,7 @@
     function hhb() {
       document.getElementById('bully').classList.remove('show');
     }
-
-    document.addEventListener('DOMContentLoaded', () => {   
-        const projectName = "Quiz Game CLI";
-        const availabilityDate = "August or Letter";
-        document.getElementById('page-title').textContent = `Documentation of ${projectName}`;
-        document.getElementById('project-name').textContent = projectName;
-        document.getElementById('availability-date').textContent = availabilityDate; 
-    });
+ 
 
    let nav = document.querySelector("nav");
    let val;
