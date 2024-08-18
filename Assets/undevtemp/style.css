@@ -1,0 +1,136 @@
+
+    .header {
+      padding: 3px;
+      outline: none;
+      font-size: 18px;
+      font-weight: 600;
+      background: #377a77;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      border-radius: 0px;
+      text-align: center;
+    }
+    
+    .header:hover {
+      background-color: #fff;
+      border-color: #377a77;
+      color: #377a77;
+      padding: 3px;
+      cursor: pointer;
+    }
+    
+    .box-content {
+      padding: 5px;
+    }
+    
+    .box {
+      border: 2px solid #377a77;
+      border-radius: 4px;
+      margin-bottom: 50px;
+      position: absolute;
+      max-width: 700px;
+    }
+    
+    .contact-box {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+      border: 3px solid #377a77;
+      background-color: rgb(240, 248, 255, 0.95);
+      position: fixed;
+      width: 99%;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 6px 6px rgb(0 0 0 / 25%);
+      font-family: "Poppins", sans-serif;
+      z-index: 999997;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      overflow: scroll;
+      max-height: 666px;
+      max-width: 800px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 0px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #89f1ee;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4ea19d;
+    }
+    
+    .contact-box.show {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    .close-btn {
+      width: 23px;
+      height: 23px;
+      border-radius: 8px;
+      z-index: 999999;
+      position: absolute;
+      top: 7px;
+      right: 3px;
+      background: url(../Assets/Images/close-icon.svg) 0 0 / 23px 23px no-repeat;
+      transition: all 0.4s ease;
+    }
+    
+    .close-btn:hover {
+      opacity: 0.2;
+      transition: all 0.4s ease;
+    }
+    
+    .hs {
+      display: inline-block;
+    }
+    
+    .hs a {
+      color: #8ba7f3;
+      font-size: 17px;
+    }
+    
+    .hs a:hover {
+      color: #377a77;
+      transition: all 0.3s ease;
+    }
+    
+    .Delayed ul li {
+      padding: 2px 0px 2px;
+      list-style-type: decimal;
+      font-weight: bold;
+    }
+    
+    .Delayed ul {
+      padding: 0px 5px;
+    }
+    .Delayed ul h3 {
+      text-align: left;
+    }
+    
+    .media-icons a {
+      color: #377a77;
+      font-size: 21px;
+      margin: 0 6px;
+      transition: all 0.3s ease;
+    }
+    .media-icons a:hover {
+      color: grey;
+      transition: all 0.3s ease;
+    }
+
+    section .button button{
+        font-size: 26px;
+        margin: 15px;
+    }
