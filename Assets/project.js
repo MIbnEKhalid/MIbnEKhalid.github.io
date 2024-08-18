@@ -1,16 +1,3 @@
-    document.addEventListener("DOMContentLoaded", function() {
-        AskForCookieConsent();
-        // Get the hash from the URL
-        const hash = window.location.hash.substring(1);
-        const categoryFilter = document.getElementById('categoryFilter');
-        if (hash) {
-            // Set the dropdown to the hash value
-            categoryFilter.value = hash;
-            filterProducts();
-        }
-    });
-        
-        
     const products = [
         { imageURL: "https://project.mbktechstudio.com/Assets/Images/CTMCpp.png",    name: "Centre The Message Cpp",              category: "cpp",   description: "", link: "https://mbktechstudio.com/CentreTheMessageCpp/"    },
         { imageURL: "https://project.mbktechstudio.com/Assets/Images/download.svg",  name: "Unity Feedback Report System",        category: "unity", description: "", link: "https://docs.mbktechstudio.com/quiz-game-cpp-cli/" },
