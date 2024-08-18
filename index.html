@@ -82,6 +82,16 @@
 
          document.addEventListener("DOMContentLoaded", function() {
             AskForCookieConsent();         
+
+            // Get the hash from the URL (e.g., "#web" or "#cpp")
+            const hash = window.location.hash.substring(1); // Remove the '#' symbol
+            const categoryFilter = document.getElementById('categoryFilter');
+            // If there is a hash in the URL, set the dropdown to the corresponding value
+            if (hash) {
+               categoryFilter.value = hash; // Set dropdown to the category from the URL hash
+            }
+            // Always trigger filtering based on the current dropdown value
+            filterProducts();
              
             const searchInput = document.getElementById('searchProduct');
             const clearBtn = document.getElementById('clearSearch');
