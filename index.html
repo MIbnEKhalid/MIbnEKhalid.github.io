@@ -547,7 +547,9 @@
       document.getElementById('h-form').classList.remove('show');
       document.getElementById('s-form').classList.remove('show');
       stopAllSounds();
-      window.open('#contact');
+      document.querySelector('#contact').scrollIntoView({
+        behavior: 'smooth'
+      });
 
     }
   //phone
