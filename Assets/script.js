@@ -257,7 +257,7 @@ function openProjectPage(id) {
 
 async function AskForCookieConsent() {
     try {
-        const response = await fetch('Assets/cookie.html');
+        const response = await fetch('https://mbktechstudio.com/Assets/cookie.html');
         const html = await response.text();
         document.getElementById('cookie').innerHTML = html;
         console.log("s1");
