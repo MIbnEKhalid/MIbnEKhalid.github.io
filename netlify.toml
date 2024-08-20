@@ -1,17 +1,11 @@
-# Redirect API requests to an external server
 [[redirects]]
-  from = "/api/*"
-  to = "https://privacy.mbktechstudio.com/:splat"
-  status = 200
-  headers = { 
-    "Access-Control-Allow-Origin" = "*",
-    "Access-Control-Allow-Methods" = "GET, OPTIONS",
-    "Access-Control-Allow-Headers" = "Content-Type"
-  }
-
-# Redirect all other requests to index.html for single-page application routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+  from = "https://test-mbktechstudio.netlify.app/*"
+  to = "https://test.mbktechstudio.com/:splat"
+  status = 301
   force = true
+
+
+[[headers]]
+for = "/*"
+[headers.values]
+Access-Control-Allow-Origin = "*"
