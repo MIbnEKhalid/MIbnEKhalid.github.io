@@ -276,7 +276,9 @@ function setCookie(name, value, days) {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    // Set the Domain attribute to make the cookie available across the primary domain and subdomains
+    var domain = "; domain=.mbktechstudio.com";  // Applies to both the subdomain and primary domain
+    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domain;
 }
 
 function getCookie(name) {
