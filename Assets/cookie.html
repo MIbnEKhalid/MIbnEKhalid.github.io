@@ -50,7 +50,7 @@ function AskForCookieConsent() {
 
 
 function getTermsVersionFromPrivacyPolicy() {
-    return fetch('/api/')
+    return fetch('https://privacy.mbktechstudio.com/')
     .then(response => response.text())
     .then(html => {
         let parser = new DOMParser();
@@ -67,6 +67,7 @@ function getTermsVersionFromPrivacyPolicy() {
         return null;
     });
 }
+
 
 
 
