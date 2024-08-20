@@ -297,7 +297,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput-jquery.min.js"></script>
   <script>
-
+/*
     // Select all the FAQ question elements
     document.querySelectorAll('.faq-question').forEach(item => {
       item.addEventListener('click', function () {
@@ -314,6 +314,18 @@
         });
       });
     });
+*/
+
+    // Select all the FAQ question elements
+document.querySelectorAll('.faq-question').forEach(item => {
+  item.addEventListener('click', function () {
+    const faqItem = this.parentNode;
+    
+    // Toggle the 'active' class for the clicked FAQ item
+    faqItem.classList.toggle('active');
+  });
+});
+
 
   </script>
 
