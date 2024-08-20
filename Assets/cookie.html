@@ -55,7 +55,7 @@ function getTermsVersionFromPrivacyPolicy() {
     .then(html => {
         let parser = new DOMParser();
         let doc = parser.parseFromString(html, 'text/html');
-        let termsVersionElement = doc.getElementById('termsVersion');
+        let termsVersionElement = doc.getElementById('termVersionPrivacy');
         if (termsVersionElement) {
             return termsVersionElement.innerText.split(': ')[1];
         } else {
