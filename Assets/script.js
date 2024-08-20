@@ -273,9 +273,13 @@ async function AskForCookieConsent() {
 
 async function SaveCookie(){
     try{
+        console.log('Save Cookie: 1');
         const termsVersion = await getTermsVersionFromPrivacyPolicy();
+        console.log('Save Cookie: 2', termsVersion);
         setCookie('agreed', termsVersion, 365);
+        console.log('Save Cookie: 3');
         hideOverlay();
+        console.log('Save Cookie: 4');
     }
     catch(err){
         console.error('Error in SaveCookie:', err);
@@ -303,8 +307,10 @@ function setCookie(name, value, days) {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
+
+// Set the Domain attribute to make the cookie available across the primary domain and subdomains
+    var domain = "; domain=.mbktechstudio.com";  // Applies to both the subdomain and primary domain
+    document.cookie = name + "=" + (value || "") + expires + "; path=/" + domain;}
 
 function getCookie(name) {
     var nameEQ = name + "=";
