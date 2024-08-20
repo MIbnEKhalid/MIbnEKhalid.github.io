@@ -138,24 +138,56 @@ function openProjectPage(id) {
  
 
 
-function AskForCookieConsent() {
-    fetch('https://mbktechstudio.com/Assets/cookie.html').then(response => response.text()).then(html => {
-        document.getElementById('cookie').innerHTML = html;
-        const termsVersion = document.getElementById('termsVersion').innerText.split(': ')[1];
-        checkCookie(termsVersion);
-    });
+  async function getTermsVersionFromPrivacyPolicy() {
+    try {
+        const response = await fetch('https://privacy.mbktechstudio.com/');
+        const html = await response.text();
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(html, 'text/html');
+        let termsVersionElement = doc.getElementById('termVersionPrivacy');
+        if (termsVersionElement) {
+            return termsVersionElement.innerText.split(': ')[1];
+        } else {
+            throw new Error('Element with id "termVersionPrivacy" not found.');
+        }
+    } catch (err) {
+        console.error('Failed to fetch or parse the privacy policy page:', err);
+        return null;
+    }
 }
 
-function SaveCookie(){
-    const termsVersion = document.getElementById('termsVersion').innerText.split(': ')[1];
-    setCookie('agreed', termsVersion, 365);
-    hideOverlay();
+async function AskForCookieConsent() {
+    try {
+        const response = await fetch('https://mbktechstudio.com/Assets/cookie.html');
+        const html = await response.text();
+        document.getElementById('cookie').innerHTML = html;
+        // Await the result of getTermsVersionFromPrivacyPolicy
+        const termsVersion = await getTermsVersionFromPrivacyPolicy();
+        // Check the cookie with the retrieved terms version
+        checkCookie(termsVersion);
+    } catch (err) {
+        console.error('Error in AskForCookieConsent:', err);
+    }
+}
+
+async function SaveCookie(){
+    try{
+        const termsVersion = await getTermsVersionFromPrivacyPolicy();
+        setCookie('agreed', termsVersion, 365);
+        hideOverlay();
+    }
+    catch(err){
+        console.error('Error in SaveCookie:', err);
+    }
 }
 
 function checkCookie(currentVersion) {
     const agreedVersion = getCookie('agreed');
     if (agreedVersion === currentVersion) {
         hideOverlay();
+    }
+    else{
+        document.getElementById('cookieNotice').style.display = 'block';
     }
 }
 
@@ -170,9 +202,7 @@ function setCookie(name, value, days) {
         date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
         expires = "; expires=" + date.toUTCString();
     }
-
-// Set the Domain attribute to make the cookie available across the primary domain and subdomains
-    var domain = "; domain=.mbktechstudio.com";  // Applies to both the subdomain and primary domain
+    var domain = "; domain=.mbktechstudio.com";
     document.cookie = name + "=" + (value || "") + expires + "; path=/" + domain;
 }
 
