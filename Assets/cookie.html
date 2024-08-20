@@ -18,7 +18,7 @@
 
             <div class="content-wrap">
                 <div class="msg-wrap">
-                    <p>This website uses cookies. By continuing to use our website, you agree to our  <a href="https://privacy.mbktechstudio.com/" target="_blank">Privacy Policy</a></p>
+                    <p onclick="getTermsVersionFromPrivacyPolicy()">This website uses cookies. By continuing to use our website, you agree to our  <a href="https://privacy.mbktechstudio.com/" target="_blank">Privacy Policy</a></p>
                     <div class="btn-wrap">
                         <button id="agreeButton" class="btn-primary" onclick="SaveCookie();">ACCEPT</button>
                     </div>
@@ -29,7 +29,32 @@
   </body>
 
   <script src="https://mbktechstudio.com/Assets/script.js"></script>
+<script>
 
-</script>
+    
+
+function getTermsVersionFromPrivacyPolicy() {
+    return fetch('https://privacy.mbktechstudio.com/')
+    .then(response => response.text())
+    .then(html => {
+        // Create a temporary DOM to parse the fetched HTML
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(html, 'text/html');
+        
+        // Extract the element with id 'termsVersion'
+        let termsVersionElement = doc.getElementById('termVersionPrivacy');
+        if (termsVersionElement) {
+            return termsVersionElement.innerText.split(': ')[1];
+        } else {
+            throw new Error('Element with id "termVersionPrivacy" not found.');
+        }
+    })
+    .catch(err => {
+        console.error('Failed to fetch or parse the privacy policy page:', err);
+        return null;
+    });
+}
+
+  </script>
 
 </html>
