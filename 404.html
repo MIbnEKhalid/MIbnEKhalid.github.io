@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html> 
 
 <html lang="en" dir="ltr">
@@ -109,7 +111,7 @@
           <a href="https://instagram.com/mbktech.studios"                           target="_blank"><i class="fab fa-instagram"></i></a>
           <a href="https://github.com/MIbnEKhalid"                                  target="_blank"><i class="fab fa-github"></i></a>
           <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b"       target="_blank"><i class="fab fa-linkedin"></i></a>
-          <a href="https://youtube.com/@MIbnEKhalid"                             target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="https://youtube.com/@mibnekhalid"                                target="_blank"><i class="fab fa-youtube"></i></a>
           <a href="https://discord.gg/MUAyAeckrM"                                   target="_blank"><i class="fab fa-discord"></i></a>
 
         </div>
@@ -141,7 +143,7 @@
 
 
         <div  class="button">
-            <button style="font-size: medium;" onclick="loadPage('https://mbktechstudio.com/')">Go Home</button>
+            <button style="font-size: medium;" onclick="loadPage('https://docs.mbktechstudio.com/')">Go Home</button>
             <button style="font-size: medium;" onclick="showbox()">Contact Form</button>
             <button style="font-size: medium;" onclick="reloadPage()">Reload</button>
           </div>
@@ -235,14 +237,22 @@ document.getElementById("form").addEventListener("submit", function(e) {
   messageBox.style.display = "block";
   document.getElementById("submit-button").disabled = true;
 
-  var currentDate = new Date();
-  var day = String(currentDate.getDate()).padStart(2, "0");
-  var month = String(currentDate.getMonth() + 1).padStart(2, "0");
-  var year = currentDate.getFullYear();
-  var hours = String(currentDate.getHours()).padStart(2, "0");
-  var minutes = String(currentDate.getMinutes()).padStart(2, "0");
-  var seconds = String(currentDate.getSeconds()).padStart(2, "0");
-  var timestamp = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+	var currentDate = new Date();
+	var day = String(currentDate.getDate()).padStart(2, "0");
+	var month = String(currentDate.getMonth() + 1).padStart(2, "0");
+	var year = currentDate.getFullYear();
+	var hours = String(currentDate.getHours()).padStart(2, "0");
+	var minutes = String(currentDate.getMinutes()).padStart(2, "0");
+	var seconds = String(currentDate.getSeconds()).padStart(2, "0");
+
+	// 12-hour format conversion
+	var hours12 = hours % 12 || 12; // Converts to 12-hour format
+	var period = currentDate.getHours() >= 12 ? "PM" : "AM";
+
+	// Retrieve the time zone
+	var region = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+	var timestamp = `${day}/${month}/${year} ${hours}:${minutes}:${seconds} or ${hours12}:${minutes}:${seconds} ${period} ${region}`;
 
   document.querySelector('input[name="Timestamp"]').value = timestamp;
   document.querySelector('input[name="PageUrl"]').value = getPageUrl();
