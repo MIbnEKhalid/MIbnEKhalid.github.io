@@ -8,8 +8,8 @@
     <title>Login</title>
     <link rel="icon" type="image/x-icon" href="../Assets/dgicon.svg">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@10.2.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.3/pako.min.js"></script>
     <link rel="stylesheet" href="../Assets/main.css" />
     <link rel="stylesheet" href="../Assets/style.css" />
@@ -75,12 +75,13 @@
         <div class="content">
             <div class="portalbox">
                 <div class="title"><span>Login Portal</span></div>
+                <form id="loginForm">
                 <div class="user-box">
-                    <input id="username" type="text" name="" required="" />
+                    <input id="loginUsername" type="text" name="UserName" required="" />
                     <label>User Name</label>
                 </div>
                 <div class="user-box">
-                    <input id="password" type="password" name="" required="" />
+                    <input id="loginPassword" type="password" name="Password" required="" />
                     <label>Password</label>
                     <span class="password-toggle-icon"><i class="fas fa-eye"></i></span>
                 </div>
@@ -94,6 +95,7 @@
                         <button type="submit" onclick="showbox('c-form')">Contact Us</button>
                     </div>
                 </div>
+            </form>
                 <p class="NotRegistered">Not registered? <a class="Link" href="../signup/">Sign Up</a></p>
                 <div class="checkbox-container">
                     <label class="lns-checkbox">
@@ -102,6 +104,79 @@
                   </label>
                 </div>
                 <p class="admin"><span class=""><i class="fas fa-info-circle"></i> </span>This Portal Is For Admins Only</p>
+                <script>
+                    // Initialize the Appwrite Client
+                    const client = new Appwrite.Client();
+                    const Database_ID = '66d19331002eba3ae1ff'; // Replace with your actual database ID
+                    const Collection_ID = '66d21488000c4040d8a9'; // Replace with your actual collection ID
+                
+                    client
+                        .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
+                        .setProject('66d192aa0028b9e5e25d'); // Your Appwrite project ID
+                
+                    const databases = new Appwrite.Databases(client);
+                
+                    // Function to hash the input using SHA-512
+                    async function hashSHA512(message) {
+                        const msgUint8 = new TextEncoder().encode(message); // Encode message as UTF-8
+                        const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8); // Hash the message
+                        const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
+                        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
+                        return hashHex;
+                    }
+                
+                    // Function to handle login
+                    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+                        event.preventDefault(); // Prevent default form submission
+                
+                        // Get form data
+                        const username = document.getElementById('loginUsername').value;
+                        const password = document.getElementById('loginPassword').value;
+                
+                        try {
+                            // Search for the user by username in the collection
+                            const userDocuments = await databases.listDocuments(Database_ID, Collection_ID, [
+                                Appwrite.Query.equal('UserName', username) // Replace 'UserName' with the actual field name in your collection
+                            ]);
+                
+                            if (userDocuments.total > 0) {
+                                // User found, get user data
+                                const user = userDocuments.documents[0];
+                
+                                // Generate a salt using the hashed username
+                                const salt = await hashSHA512(username);
+                
+                                // Concatenate the salt with the input password and hash it
+                                const saltedPassword = salt + password;
+                                const hashedPassword = await hashSHA512(saltedPassword);
+                
+                                // Compare the hashed passwords
+                                if (user.Password === hashedPassword) {
+                                    // Password matches
+                                    showbox('m-form');
+                                    document.getElementById('loginMessage').textContent = 'Login successful!';
+                                    console.log('User logged in successfully:', user);
+                                    // Redirect or perform further actions after login
+                                } else {
+                                    // Password does not match
+                                    showbox('m-form');
+                                    document.getElementById('loginMessage').textContent = 'Invalid username or password.';
+                                    console.error('Invalid password for user:', username);
+                                }
+                            } else {
+                                // User not found
+                                showbox('m-form');
+                                document.getElementById('loginMessage').textContent = 'User not found.';
+                                console.error('User not found:', username);
+                            }
+                        } catch (error) {
+                            // Handle errors
+                            showbox('m-form');
+                            document.getElementById('loginMessage').textContent = 'Error logging in user: ' + error.message;
+                            console.error('Error logging in user:', error);
+                        }
+                    });
+                </script>
                 <script>
                     const passwordField = document.getElementById("password");
                     const togglePassword = document.querySelector(".password-toggle-icon i");
@@ -116,7 +191,14 @@
                             togglePassword.classList.add("fa-eye");
                         }
                     });
-                </script>
+                </script>            
+            <div id="m-form" class="message-box">
+                <div class="title" style="margin-bottom:20px;"><span>Login Failed</span></div>
+                <h4 style="color: #fff;"id="loginMessage"></h4>
+                <div class="button"style="margin-top:20px;">
+                    <button onclick="hidebox('m-form')">UnderStood</button>
+                </div>
+            </div>
             </div>
             <div id="c-form" class="contact-box">
                 <div onclick="hidebox('c-form')" class="close-btn"></div>

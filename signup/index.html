@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../Assets/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="icon" type="image/x-icon" href="https://maintenance.mbktechstudio.com/Assets/Images/dgicon.svg">
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@10.2.0"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <header>
@@ -28,11 +29,13 @@
                 </div>
             </ul>
             <div class="media-icons">
-                <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i
+                        class="fab fa-facebook-f"></i></a>
                 <a href="https://x.com/ibnekhalid28" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://instagram.com/mbktech.studios" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://github.com/MIbnEKhalid" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-bin-khalid-89711b25b" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
                 <a href="https://youtube.com/@mibnekhalid" target="_blank"><i class="fab fa-youtube"></i></a>
                 <a href="https://discord.gg/MUAyAeckrM" target="_blank"><i class="fab fa-discord"></i></a>
             </div>
@@ -48,39 +51,105 @@
         <div class="content">
             <div class="portalbox">
                 <div class="title"><span>Sign Up</span></div>
-                <div class="user-box">
-                    <input id="username" type="text" name="" required="" />
-                    <label>User Name</label>
-                </div>
-                <div class="user-box">
-                    <input id="userEmail" type="email" name="" required="" />
-                    <label>Email</label>
-                </div>
-                <div class="user-box">
-                    <input id="npassword" type="password" name="" required="" />
-                    <label>Password</label>
-                    <span class="password-toggle-icon" data-target="npassword"><i class="fas fa-eye"></i></span>
-                </div>
-                <div class="user-box">
-                    <input id="confirmPassword" type="password" name="" required="" />
-                    <label>Confirm Password</label>
-                    <span class="password-toggle-icon" data-target="confirmPassword"><i class="fas fa-eye"></i></span>
-                </div>
-                <div class="wrap">
-                    <div class="button">
-                        <button type="submit" onclick="showbox('m-form')">SignUp</button>
+                <form id="registrationForm">
+                    <div class="user-box">
+                        <input id="username" type="text" name="UserName" required="" />
+                        <label>User Name</label>
                     </div>
-                </div>
-                <div class="wrap">
-                    <div class="button">
-                        <button type="submit" onclick="showbox('c-form')">Contact Us</button>
+                    <div class="user-box">
+                        <input id="email" type="email" name="Email" required="" />
+                        <label>Email</label>
                     </div>
-                </div>
+                    <div class="user-box">
+                        <input id="npassword" type="password" name="Password" required="" />
+                        <label>Password</label>
+                        <span class="password-toggle-icon" data-target="npassword"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <div class="user-box">
+                        <input id="confirmPassword" type="password" name="" required="" />
+                        <label>Confirm Password</label>
+                        <span class="password-toggle-icon" data-target="confirmPassword"><i class="fas fa-eye"></i></span>
+                    </div>
+                    <div class="wrap">
+                        <div class="button">
+                            <button type="submit">SignUp</button>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="button">
+                            <button onclick="showbox('c-form')">Contact Us</button>
+                        </div>
+                    </div>
+                </form>
                 <p class="NotRegistered">Already Registered? <a class="Link" href="../login/">Login</a></p>
-                <p class="admin"><span class=""><i class="fas fa-info-circle"></i> </span>This Portal Is For Admins Only</p>
+                <p class="admin"><span class=""><i class="fas fa-info-circle"></i> </span>This Portal Is For Admins Only
+                </p>
+                <script>
+                    // Initialize the Appwrite Client
+                    const client = new Appwrite.Client();
+                    const Database_ID = '66d19331002eba3ae1ff'; // Replace with your actual database ID
+                    const Collection_ID = '66d1934300143840975c'; // Replace with your actual collection ID
+
+                    client
+                        .setEndpoint('https://cloud.appwrite.io/v1') // Your Appwrite endpoint
+                        .setProject('66d192aa0028b9e5e25d'); // Your Appwrite project ID
+
+                    const databases = new Appwrite.Databases(client);
+
+                    // Function to hash the input using SHA-512
+                    async function hashSHA512(message) {
+                        const msgUint8 = new TextEncoder().encode(message); // Encode message as UTF-8
+                        const hashBuffer = await crypto.subtle.digest('SHA-512', msgUint8); // Hash the message
+                        const hashArray = Array.from(new Uint8Array(hashBuffer)); // Convert buffer to byte array
+                        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // Convert bytes to hex string
+                        return hashHex;
+                    }
+
+                    // Handle form submission
+                    document.getElementById('registrationForm').addEventListener('submit', async function (event) {
+                        event.preventDefault(); // Prevent default form submission
+
+                        // Get form data
+                        const username = document.getElementById('username').value;
+                        const email = document.getElementById('email').value;
+                        const password = document.getElementById('npassword').value;
+
+                        // Generate a salt using the hashed username
+                        const salt = await hashSHA512(username);
+
+                        // Concatenate the salt with the password and hash it
+                        const saltedPassword = salt + password;
+                        const hashedPassword = await hashSHA512(saltedPassword);
+
+                        // Data to be stored in the document
+                        const documentData = {
+                            UserName: username,
+                            Email: email,
+                            Password: hashedPassword, // Store the hashed password
+                        };
+
+                        try {
+                            // Create a new document in the collection
+                            const response = await databases.createDocument(Database_ID, Collection_ID, 'unique()', documentData);
+
+                            // Display success message
+                            document.getElementById('message').textContent = 'User registered successfully!';
+                            console.log('User registered successfully:', response);
+                            showbox('m-form');
+                            document.getElementById('username').value = "";
+                            document.getElementById('email').value = "";
+                            document.getElementById('npassword').value = "";
+                            document.getElementById('confirmPassword').value = "";
+                        } catch (error) {
+                            // Handle errors
+                            document.getElementById('message').textContent = 'Error registering user: ' + error.message;
+                            console.error('Error registering user:', error);
+                        }
+                    });
+                </script>
                 <script>
                     document.querySelectorAll('.password-toggle-icon').forEach(item => {
-                        item.addEventListener('click', function() {
+                        item.addEventListener('click', function () {
                             const targetField = document.getElementById(this.dataset.target);
                             const icon = this.querySelector('i');
                             if (targetField.type === "password") {
@@ -97,10 +166,11 @@
                 </script>
             </div>
             <div id="m-form" class="message-box">
-                <div onclick="hidebox('m-form')" class="close-btn"></div>
-                <div class="title"><span>Form Submitted</span></div>
-                <h2 style="color: #fff;">Your form has been submitted! You will receive an confirmation email from <a class="Link" href="mailto:no-reply@mbktechstudio.com">no-reply@mbk tech studio.com</a> once the super admins approve your request. Only then will you be able
-                    to log in.</h2>
+                <div class="title" style="margin-bottom:20px;"><span>Form Submitted</span></div>
+                <h4 style="color: #fff;">Your Form Has Been Submitted! You Will Receive An Confirmation Email From <a class="Link" href="mailto:no-reply@mbktechstudio.com">no-reply@mbk tech studio.com</a> once the Super Admins Approve Your Request. Only Then Will You Be Able To Login.</h4>
+                <div class="button"style="margin-top:20px;">
+                    <button onclick="hidebox('m-form')">UnderStood</button>
+                </div>
             </div>
             <div id="c-form" class="contact-box">
                 <div onclick="hidebox('c-form')" class="close-btn"></div>
@@ -113,29 +183,36 @@
                     <div class="field">
                         <label class="label">Name</label>
                         <div class="control">
-                            <div class="input"><input type="text" placeholder="Enter Your Name" name="UserName" required /></div>
+                            <div class="input"><input type="text" placeholder="Enter Your Name" name="UserName"
+                                    required /></div>
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Email</label>
                         <div class="control">
-                            <div class="input"><input type="email" placeholder="Enter Your Email" name="Email" required /></div>
+                            <div class="input"><input type="email" placeholder="Enter Your Email" name="Email"
+                                    required /></div>
                         </div>
                     </div>
                     <div class="field">
                         <label class="label">Page URL:</label>
                         <div class="control">
-                            <div class="input"><input type="text" placeholder="Reload the page if the URL is not displayed." id="pageUrlInput" name="PageUrl" readonly /></div>
+                            <div class="input"><input type="text"
+                                    placeholder="Reload the page if the URL is not displayed." id="pageUrlInput"
+                                    name="PageUrl" readonly /></div>
                         </div>
                     </div>
                     <div class="field" style="margin-bottom: -5px;">
                         <label class="label">Message</label>
-                        <div class="control"><textarea class="input" placeholder="Enter Your Message..." name="Message" rows="4" required></textarea></div>
+                        <div class="control"><textarea class="input" placeholder="Enter Your Message..." name="Message"
+                                rows="4" required></textarea></div>
                     </div>
                     <div class="button field is-grouped" style="display: flex; justify-content: center;">
-                        <div class="control"><button class="button is-primary" type="submit" id="submit-button">Submit</button></div>
+                        <div class="control"><button class="button is-primary" type="submit"
+                                id="submit-button">Submit</button></div>
                     </div>
-                    <div id="message" style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;">
+                    <div id="message"
+                        style="display: none; font-weight: bold; color: green; padding: 8px; background-color: beige; border-radius: 4px; margin-top: 10px; border-color: aquamarine;">
                     </div>
                 </form>
                 <script>
@@ -146,11 +223,10 @@
                     function loadPage(url) {
                         location.href = url;
                     }
-                    document.addEventListener("DOMContentLoaded", function() {
+                    document.addEventListener("DOMContentLoaded", function () {
                         function getPageUrl() {
                             return window.location.href;
                         }
-
                         // Set the value of the input field with the page URL
                         document.getElementById('pageUrlInput').value = getPageUrl();
                     });
@@ -161,7 +237,10 @@
 </body>
 <footer>
     <div class="text">
-        <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank">Terms & Conditions</a> | <a href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com">support@mbktechstudio.com</a> </span>
+        <span>Developed By <a href="https://github.com/MIbnEKhalid">Muhammad Bin Khalid</a> | &#169; 2024 All Rights
+            Reserved | <a href="https://privacy.mbktechstudio.com/" target="_blank">Terms & Conditions</a> | <a
+                href="mailto:support@mbktechstudio.com" title="support@mbktechstudio.com">support@mbktechstudio.com</a>
+        </span>
     </div>
 </footer>
 <script>
