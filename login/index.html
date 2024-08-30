@@ -22,20 +22,16 @@
                     <img src="../Assets/dg.svg" alt="" />
                 </div>
                 <div class="text">
-                    <a href="#">MBK Tech Studio</a>
+                    <a href="../">MBK Tech Studio</a>
                 </div>
-
             </div>
             <ul style="display: none;" class="menu">
-
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#services">Projects</a></li>
                 <li><a href="#contact">Contact Us</a></li>
-
                 <div class="cancel-btn">
                     <i class="fas fa-times"></i>
                 </div>
-
             </ul>
             <div class="media-icons">
                 <a href="https://www.facebook.com/people/MBK-Tech-Studio/61559079077988/" target="_blank"><i class="fab fa-facebook-f"></i></a>
@@ -74,7 +70,6 @@
         }
     }
 </style>
-
 <body>
     <section class="about" id="about">
         <div class="content">
@@ -110,7 +105,6 @@
                 <script>
                     const passwordField = document.getElementById("password");
                     const togglePassword = document.querySelector(".password-toggle-icon i");
-
                     togglePassword.addEventListener("click", function() {
                         if (passwordField.type === "password") {
                             passwordField.type = "text";
@@ -164,7 +158,6 @@
                     function reloadPage() {
                         location.reload();
                     }
-
                     function loadPage(url) {
                         location.href = url;
                     }
@@ -172,7 +165,6 @@
                         function getPageUrl() {
                             return window.location.href;
                         }
-
                         // Set the value of the input field with the page URL
                         document.getElementById('pageUrlInput').value = getPageUrl();
                     });
