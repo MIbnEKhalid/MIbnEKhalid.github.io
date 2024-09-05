@@ -28,9 +28,9 @@
     },
     {
         "imageURL": "Assets/Images/unity.png",
-        "name": "Simple Message Protocol",
+        "name": "SMP (Simple Message Project/Protocol)",
         "category": ["unity"],
         "description": "",
-        "link": "https://docs.mbktechstudio.com/mbktechstudio.com/"
+        "link": "https://docs.mbktechstudio.com/smp/"
     }
 ]
