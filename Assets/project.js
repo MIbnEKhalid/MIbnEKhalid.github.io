@@ -1,37 +1,41 @@
-const products = [
-    { imageURL: "https://project.mbktechstudio.com/Assets/Images/CTMCpp.png", name: "Centre The Message Cpp", category: ["cpp"], description: "", link: "https://mbktechstudio.com/CentreTheMessageCpp/" },
-    { imageURL: "https://project.mbktechstudio.com/Assets/Images/unity.png", name: "Unity Feedback Report System", category: ["unity"], description: "", link: "https://docs.mbktechstudio.com/quiz-game-cpp-cli/" },
-    { imageURL: "https://project.mbktechstudio.com/Assets/Images/cpp.png", name: "Cpp Quiz Game", category: ["cpp"], description: "", link: "https://docs.mbktechstudio.com/quiz-game-cpp-cli/" },
-    { imageURL: "Assets/Images/mainpage.png", name: "MBK Tech Studio Website", category: ["web"], description: "", link: "https://docs.mbktechstudio.com/mbktechstudio.com/" },
-];
+let products = []; // Define products as a global variable
 
-            
-    const productsContainer = document.querySelector('.products');
-    const searchInput = document.getElementById('searchProduct');
-    const categoryFilter = document.getElementById('categoryFilter');
-            
-    function displayProducts(productsArray) {
-        productsContainer.innerHTML = "";
-        if (productsArray.length === 0) {
-            productsContainer.innerHTML = '<p class="nmessage">Project not found</p>';
-            return;
-        }
-        productsArray.forEach(product => {
-            const productElement = document.createElement('div');
-            productElement.classList.add('product');
-            productElement.innerHTML = `
-                <img src="${product.imageURL}" alt="${product.name}">
-                <h3>${product.name}</h3>
-                <p>${product.description}</p>
-            `;
-            //<p>Price: $${product.price}</p>
-            productElement.addEventListener('click', () => {
-                window.open(product.link, '_blank');
-            });
-        productsContainer.appendChild(productElement)
-        });
+const productsContainer = document.querySelector('.products');
+const searchInput = document.getElementById('searchProduct');
+const categoryFilter = document.getElementById('categoryFilter');
+
+// Function to fetch and use the products data
+async function loadProducts() {
+    try {
+        const response = await fetch('Assets/projects.json'); // Update the path to your products.json file
+        products = await response.json(); // Update the global products variable
+        filterProducts(); // Call filterProducts to display the initial set of products
+    } catch (error) {
+        console.error('Error loading products:', error);
     }
-            
+}
+
+function displayProducts(productsArray) {
+    productsContainer.innerHTML = "";
+    if (productsArray.length === 0) {
+        productsContainer.innerHTML = '<p class="nmessage">Project not found</p>';
+        return;
+    }
+    productsArray.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.innerHTML = `
+            <img src="${product.imageURL}" alt="${product.name}">
+            <h3>${product.name}</h3>
+            <p>${product.description}</p>
+        `;
+        productElement.addEventListener('click', () => {
+            window.open(product.link, '_blank');
+        });
+        productsContainer.appendChild(productElement);
+    });
+}
+
 function filterProducts() {
     const selectedCategory = categoryFilter.value;
     let filteredProducts = products;
@@ -43,14 +47,13 @@ function filterProducts() {
     displayProducts(filteredProducts);
 }
 
-            
-    function searchProducts(productsArray) {
-        const searchText = searchInput.value.toLowerCase();
-        return productsArray.filter(product => product.name.toLowerCase().includes(searchText));
-    }
-            
-    categoryFilter.addEventListener('change', filterProducts);
-    searchInput.addEventListener('input', filterProducts);
-            
-    // Initial display of all products
-    displayProducts(products);
+function searchProducts(productsArray) {
+    const searchText = searchInput.value.toLowerCase();
+    return productsArray.filter(product => product.name.toLowerCase().includes(searchText));
+}
+
+categoryFilter.addEventListener('change', filterProducts);
+searchInput.addEventListener('input', filterProducts);
+
+// Initial display of all products
+loadProducts();
