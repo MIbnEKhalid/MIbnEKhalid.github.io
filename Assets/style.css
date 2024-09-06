@@ -13,10 +13,10 @@ a{
   transition: all 0.3s ease; 
 }
 a:visited{
-  color: #377a77;
+  color: #9eb5f7;
 }
 a:hover{
-  color: #9eb5f7;
+  color: #377a77;
   transition: all 0.3s ease;
 }
 
