@@ -6,7 +6,7 @@
 
 
 [[redirects]]
-  from = "https://protfolio.mbktechstudio.com/:splat"
+  from = "https://protfolio.mbktechstudio.com/*"
   to = "https://portfolio.mbktechstudio.com/:splat"
   status = 301
   force = true
