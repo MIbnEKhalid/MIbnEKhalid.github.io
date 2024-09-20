@@ -495,31 +495,26 @@ section .button button:hover {
 }
 
 /* My Services CSS */
-
 .services .boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
-
 .services .boxes .box {
   margin: 20px 0;
   width: calc(100% / 3 - 20px);
   text-align: center;
   border-radius: 12px;
   padding: 30px 10px;
-  background-color: rgb(21, 21, 21);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
   cursor: default;
   transition: all 0.4s ease;
 }
-
 .services .boxes .box:hover {
   background: #377a77;
   color: #fff;
   transition: all 0.3s ease;
 }
-
 .services .boxes .box .icon {
   height: 50px;
   width: 50px;
@@ -532,23 +527,23 @@ section .button button:hover {
   margin: 0 auto 10px auto;
   transition: all 0.4s ease;
 }
-
-.boxes .box:hover .icon {
+.services .boxes .box:hover .icon {
   background-color: #fff;
   color: #377a77;
   transition: all 0.3s ease;
 }
-
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p {
-  color: #fff;
+  color: #0e2431;
   transition: all 0.4s ease;
 }
-
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p {
   color: #fff;
   transition: all 0.3s ease;
+}
+.services .boxes:hover > :not(:hover){
+  opacity: 0.6;
 }
 
 /* Contact Me CSS */
