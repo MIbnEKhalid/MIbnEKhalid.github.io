@@ -491,3 +491,7 @@ footer {
 .products p{
     font-size: 12px;
 }
+
+.products:hover > :not(:hover){
+  opacity: 0.6;
+}
