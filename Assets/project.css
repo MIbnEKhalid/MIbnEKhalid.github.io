@@ -280,12 +280,13 @@ footer .text span a:hover{
   color: #d9dbe2;
   transition: all 0.3s ease;
 }
+
 html, body {
   height: 100%;
   margin: 0;
   display: flex;
   flex-direction: column;  
-  background: url("../Assets/Images/background.png");
+  background-color: #f0f8ff;
 }
 
 body {
