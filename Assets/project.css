@@ -203,7 +203,7 @@ section .button button {
 }
 section .button button:hover {
   border-color: #377a77;
-  background-color: #fff;
+  background-color: transparent;
   color: #377a77;
 }
 footer {
