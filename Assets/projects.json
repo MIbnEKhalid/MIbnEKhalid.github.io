@@ -1,43 +1,43 @@
 [{
         "imageURL": "Assets/Images/book_cover.jfif",
-        "name": "Book1",
+        "name": "Using Information Technology",
         "category": ["CourseBooks"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     },
     {
         "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book2",
         "category": ["CourseBooks"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     },
     {
         "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book3",
         "category": ["CourseBooks"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     },
     {
         "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book4",
         "category": ["CourseBooks"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     },
     {
         "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book5",
         "category": ["CourseBooks"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     },
     {
         "imageURL": "Assets/Images/book_cover.jfif",
         "name": "LabManuals1",
         "category": ["LabManuals"],
         "description": "",
-        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+        "link": "https://drive.google.com/file/d/19-ySH4dlDw2jIW-cMSx2Pi1PMZSCRgKw/view?usp=sharing"
     }
 ]
