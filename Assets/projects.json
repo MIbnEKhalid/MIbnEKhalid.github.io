@@ -1,35 +1,42 @@
 [{
         "imageURL": "Assets/Images/CTMCpp.png",
         "name": "Book1",
-        "category": ["cpp"],
+        "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/unity.png",
         "name": "Book2",
-        "category": ["unity"],
+        "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/cpp.png",
         "name": "Book3",
-        "category": ["cpp"],
+        "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/mainpage.png",
         "name": "Book4",
-        "category": ["web"],
+        "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/unity.png",
         "name": "Book5",
-        "category": ["unity"],
+        "category": ["CourseBooks"],
+        "description": "",
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
+    },
+    {
+        "imageURL": "Assets/Images/mainpage.png",
+        "name": "LabManuals1",
+        "category": ["LabManuals"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     }
