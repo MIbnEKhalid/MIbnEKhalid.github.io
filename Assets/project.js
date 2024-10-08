@@ -18,7 +18,7 @@ async function loadProducts() {
 function displayProducts(productsArray) {
     productsContainer.innerHTML = "";
     if (productsArray.length === 0) {
-        productsContainer.innerHTML = '<p class="nmessage">Project not found</p>';
+        productsContainer.innerHTML = '<p class="nmessage">Material not found</p>';
         return;
     }
     productsArray.forEach(product => {
