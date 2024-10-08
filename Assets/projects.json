@@ -1,40 +1,40 @@
 [{
-        "imageURL": "Assets/Images/CTMCpp.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book1",
         "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
-        "imageURL": "Assets/Images/unity.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book2",
         "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
-        "imageURL": "Assets/Images/cpp.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book3",
         "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
-        "imageURL": "Assets/Images/mainpage.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book4",
         "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
-        "imageURL": "Assets/Images/unity.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "Book5",
         "category": ["CourseBooks"],
         "description": "",
         "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
-        "imageURL": "Assets/Images/mainpage.png",
+        "imageURL": "Assets/Images/book_cover.jfif",
         "name": "LabManuals1",
         "category": ["LabManuals"],
         "description": "",
