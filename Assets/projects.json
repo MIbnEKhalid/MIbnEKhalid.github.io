@@ -1,36 +1,36 @@
 [{
         "imageURL": "Assets/Images/CTMCpp.png",
-        "name": "Centre The Message Cpp",
+        "name": "Book1",
         "category": ["cpp"],
         "description": "",
-        "link": "https://mbktechstudio.com/CentreTheMessageCpp/"
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/unity.png",
-        "name": "Unity Feedback Report System",
+        "name": "Book2",
         "category": ["unity"],
         "description": "",
-        "link": "https://docs.mbktechstudio.com/quiz-game-cpp-cli/"
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/cpp.png",
-        "name": "Cpp Quiz Game",
+        "name": "Book3",
         "category": ["cpp"],
         "description": "",
-        "link": "https://docs.mbktechstudio.com/quiz-game-cpp-cli/"
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/mainpage.png",
-        "name": "MBK Tech Studio Website",
+        "name": "Book4",
         "category": ["web"],
         "description": "",
-        "link": "https://docs.mbktechstudio.com/mbktechstudio.com/"
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     },
     {
         "imageURL": "Assets/Images/unity.png",
-        "name": "SMP (Simple Message Project/Protocol)",
+        "name": "Book5",
         "category": ["unity"],
         "description": "",
-        "link": "https://docs.mbktechstudio.com/smp/"
+        "link": "https://mbktechstudio.com/Assets/MBK_CV.pdf"
     }
 ]
